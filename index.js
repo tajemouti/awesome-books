@@ -21,7 +21,6 @@ function displayBooks() {
               <p>${book.titleVal}</p>
               <p>${book.authorVal}</p>
               <button id=${index} class="btn" type="button">Remove</button>
-              <hr>
             </div>
       `;
     newBooks.insertAdjacentHTML('beforeend', shelf);
