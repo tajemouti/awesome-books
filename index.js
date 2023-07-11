@@ -12,3 +12,26 @@ const bookList = JSON.parse(localStorage.getItem('booksDetails'));
 function saveStorage() {
   localStorage.setItem('booksDetails', JSON.stringify(bookList));
 }
+
+function displayBooks() {
+  newBooks.innerHTML = '';
+  bookList.forEach((book, index) => {
+    const shelf = `
+            <div>
+              <p>${book.titleVal}</p>
+              <p>${book.authorVal}</p>
+              <button id=${index} class="btn" type="button">Remove</button>
+              <hr>
+            </div>
+      `;
+    newBooks.insertAdjacentHTML('beforeend', shelf);
+    const remBtn = document.getElementById(`${index}`);
+
+    function removeBook() {
+      bookList.splice(this, 1);
+      saveStorage();
+      displayBooks();
+    }
+    remBtn.addEventListener('click', removeBook.bind(index));
+  });
+}
