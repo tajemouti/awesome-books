@@ -35,3 +35,18 @@ function displayBooks() {
     remBtn.addEventListener('click', removeBook.bind(index));
   });
 }
+
+button.addEventListener('click', (event) => {
+  event.preventDefault();
+
+  const titleVal = title.value;
+  const authorVal = author.value;
+
+  const book = { titleVal, authorVal };
+  bookList.push(book);
+
+  saveStorage(bookList);
+  displayBooks();
+});
+
+displayBooks(bookList);
