@@ -6,6 +6,25 @@
   font-weight: 700;
 }
 
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 4rem;
+  border: 2px solid;
+  margin: 1rem 2rem;
+}
+
+ul {
+  display: flex;
+  gap: 2rem;
+  list-style: none  ;
+}
+
+a {
+  text-decoration: none;  
+}
+
+
 #main {
   display: flex;
   flex-direction: column;
