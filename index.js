@@ -1,52 +1,76 @@
-const title = document.getElementById('book-title');
-const author = document.getElementById('book-author');
+const bookTitle = document.getElementById('book-title');
+const bookAuthor = document.getElementById('book-author');
 const button = document.getElementById('add-btn');
 const newBooks = document.getElementById('new-books');
 
-if (localStorage.getItem('booksDetails') === null) {
-  localStorage.setItem('booksDetails', JSON.stringify([]));
-}
+class Book {
+  bookList;
 
-const bookList = JSON.parse(localStorage.getItem('booksDetails'));
+  constructor(title, author) {
+    this.title = title;
+    this.author = author;
+    this.getStorage();
+  }
 
-function saveStorage() {
-  localStorage.setItem('booksDetails', JSON.stringify(bookList));
-}
+  getStorage() {
+    this.bookList = JSON.parse(localStorage.getItem('booksDetails')) || [];
+  }
 
-function displayBooks() {
-  newBooks.innerHTML = '';
-  bookList.forEach((book, index) => {
-    const shelf = `
-            <div>
-              <p>${book.titleVal}</p>
-              <p>${book.authorVal}</p>
-              <button id=${index} class="btn" type="button">Remove</button>
-              <hr>
-            </div>
-      `;
-    newBooks.insertAdjacentHTML('beforeend', shelf);
-    const remBtn = document.getElementById(`${index}`);
-
-    function removeBook() {
-      bookList.splice(this, 1);
-      saveStorage();
-      displayBooks();
+  loadIntoStorage(node) {
+    if (node) {
+      localStorage.setItem('booksDetails', JSON.stringify(node));
+      return;
     }
-    remBtn.addEventListener('click', removeBook.bind(index));
-  });
+    this.getStorage();
+    const book = { title: this.title, author: this.author };
+    this.bookList.push(book);
+    localStorage.setItem('booksDetails', JSON.stringify(this.bookList));
+  }
+
+  displayBooks() {
+    newBooks.innerHTML = '';
+    if (this.bookList === null) return;
+    this.bookList.forEach((book, index) => {
+      const shelf = `
+      <div class="book">
+        <p class="book-info">"${book.title}" by ${book.author}</p>
+        <button id=${index} class="remove-btn">Remove</button>
+      </div>
+      `;
+
+      newBooks.insertAdjacentHTML('beforeend', shelf);
+    });
+  }
+
+  saveStorage() {
+    this.getStorage();
+    this.displayBooks();
+  }
+
+  removeBook(index) {
+    this.getStorage();
+    const filter = this.bookList.filter((book) => book !== this.bookList.at(index));
+    this.loadIntoStorage(filter);
+    this.saveStorage();
+  }
 }
 
-button.addEventListener('click', (event) => {
-  event.preventDefault();
+const shelf = new Book();
+shelf.saveStorage();
 
-  const titleVal = title.value;
-  const authorVal = author.value;
+button.addEventListener('click', (e) => {
+  e.preventDefault();
+  const title = bookTitle.value;
+  const author = bookAuthor.value;
 
-  const book = { titleVal, authorVal };
-  bookList.push(book);
+  if (!title || !author) return;
+  const book = new Book(title, author);
 
-  saveStorage(bookList);
-  displayBooks();
+  book.loadIntoStorage();
+  book.saveStorage();
 });
 
-displayBooks(bookList);
+newBooks.addEventListener('click', (e) => {
+  const remBtnId = e.target.getAttribute('id');
+  shelf.removeBook(remBtnId);
+});
