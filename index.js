@@ -54,4 +54,23 @@ class Book {
     this.saveStorage();
   }
 }
-  
+
+const shelf = new Book();
+shelf.saveStorage();
+
+button.addEventListener('click', (e) => {
+  e.preventDefault();
+  const title = bookTitle.value;
+  const author = bookAuthor.value;
+
+  if (!title || !author) return;
+  const book = new Book(title, author);
+
+  book.loadIntoStorage();
+  book.saveStorage();
+});
+
+newBooks.addEventListener('click', (e) => {
+  const remBtnId = e.target.getAttribute('id');
+  shelf.removeBook(remBtnId);
+});
