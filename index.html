@@ -8,18 +8,50 @@
 </head>
 
 <body>
-    <div id="main">
+    <header>
+        <nav>
+            <a href="#">Awesome Books</a>
+            <ul id="nav-list">
+                <li><a data-main="1" href="#">List</a></li> |
+                <li><a data-main="2" href="#">Add new</a></li> |
+                <li><a data-main="3" href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <p id="date"></p>
+    </header>
+
+    <section class="main main1">
         <h1>All awesome books</h1>
         <div id="new-books"></div>
-        <hr>
-        
+    </section>
+
+    <section class="main main2 display">
         <h2>Add a new book</h2>
         <form action="">
             <input id="book-title" placeholder="Title" type="text">
             <input id="book-author" placeholder="Author" type="text">
             <button id="add-btn" type="button">Add</button>
         </form>
-    </div>
+    </section>
+
+    <section class="main main3">
+        <h2>Contact information</h2>
+        <p>
+            Do you have any questions or you just want to say "Hi"?
+            <br>
+            You can reach out to us!
+        </p>
+        <ul class="contact-list">
+            <li>Our e-mail: mail@mail.com</li>
+            <li>Our phone number: 00212586534422</li>
+            <li>Our address: Streetname 22, 84503 City, Country</li>
+        </ul>
+    </section>
+
+    <footer>
+        Copyright ...
+    </footer>
+
     <script src="index.js"></script>
 </body>
 </html>

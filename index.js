@@ -74,3 +74,16 @@ newBooks.addEventListener('click', (e) => {
   const remBtnId = e.target.getAttribute('id');
   shelf.removeBook(remBtnId);
 });
+
+const navList = document.getElementById('nav-list');
+const theDate = document.getElementById('date');
+const sections = document.querySelectorAll('.main');
+
+const today = new Date();
+theDate.textContent = today.toUTCString();
+
+navList.addEventListener('click', (e) => {
+  const { main } = e.target.dataset;
+  sections.forEach((link) => link.classList.remove('display'));
+  document.querySelector(`.main${main}`).classList.add('display');
+});
