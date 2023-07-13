@@ -74,3 +74,8 @@ newBooks.addEventListener('click', (e) => {
   const remBtnId = e.target.getAttribute('id');
   shelf.removeBook(remBtnId);
 });
+
+const theDate = document.getElementById('date');
+const today = new Date();
+
+theDate.textContent = today.toUTCString();
