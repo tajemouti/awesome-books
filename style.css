@@ -100,4 +100,8 @@ footer {
   padding: 4px 1rem;
   border: 2px solid;
   margin: 4px 15%;
+  position: fixed;
+  bottom: 4px;
+  left: 0;
+  right: 0;
 }
