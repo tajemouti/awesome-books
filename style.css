@@ -25,7 +25,7 @@ a {
 }
 
 
-#main {
+.main {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -42,7 +42,7 @@ h2 {
   display: flex;
   flex-direction: column;
   border: 2px solid;
-  width: 60%;
+  width: 100%;
 }
 
 .book {
@@ -73,7 +73,7 @@ form {
   flex-direction: column;
   align-items: flex-end;
   gap: 8px;
-  width: 30%;
+  width: 60%;
 }
 
 input {
