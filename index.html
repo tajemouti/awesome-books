@@ -11,21 +11,21 @@
     <header>
         <nav>
             <a href="#">Awesome Books</a>
-            <ul>
-                <li><a href="#">List</a></li> |
-                <li><a href="#">Add new</a></li> |
-                <li><a href="#">Contact</a></li>
+            <ul id="nav-list">
+                <li><a data-main="1" href="#">List</a></li> |
+                <li><a data-main="2" href="#">Add new</a></li> |
+                <li><a data-main="3" href="#">Contact</a></li>
             </ul>
         </nav>
         <p id="date"></p>
     </header>
 
-    <section id="books-list" class="main">
+    <section class="main main1">
         <h1>All awesome books</h1>
         <div id="new-books"></div>
     </section>
 
-    <section id="add-book" class="main">
+    <section class="main main2 display">
         <h2>Add a new book</h2>
         <form action="">
             <input id="book-title" placeholder="Title" type="text">
@@ -34,7 +34,7 @@
         </form>
     </section>
 
-    <section id="contact-info" class="main">
+    <section class="main main3">
         <h2>Contact information</h2>
         <p>
             Do you have any questions or you just want to say "Hi"?
@@ -43,7 +43,7 @@
         </p>
         <ul class="contact-list">
             <li>Our e-mail: mail@mail.com</li>
-            <li>Our phone number: 0043586534422</li>
+            <li>Our phone number: 00212586534422</li>
             <li>Our address: Streetname 22, 84503 City, Country</li>
         </ul>
     </section>
@@ -51,6 +51,7 @@
     <footer>
         Copyright ...
     </footer>
+
     <script src="index.js"></script>
 </body>
 </html>

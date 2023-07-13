@@ -18,11 +18,11 @@ nav {
 ul {
   display: flex;
   gap: 1rem;
-  list-style: none  ;
+  list-style: none;
 }
 
 a {
-  text-decoration: none;  
+  text-decoration: none;
 }
 
 #date {
@@ -32,7 +32,7 @@ a {
 }
 
 .main {
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
   gap: 12px;
@@ -40,7 +40,9 @@ a {
   min-height: 50vh;
 }
 
-
+.main.display {
+  display: flex;
+}
 
 h1,
 h2 {
@@ -88,7 +90,7 @@ input {
 }
 
 .contact-list {
-  flex-direction:column;
+  flex-direction: column;
   list-style: disc;
   gap: 2px;
   padding-left: 1rem;

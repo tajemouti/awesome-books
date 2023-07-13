@@ -75,7 +75,15 @@ newBooks.addEventListener('click', (e) => {
   shelf.removeBook(remBtnId);
 });
 
+const navList = document.getElementById('nav-list');
 const theDate = document.getElementById('date');
-const today = new Date();
+const sections = document.querySelectorAll('.main');
 
+const today = new Date();
 theDate.textContent = today.toUTCString();
+
+navList.addEventListener('click', (e) => {
+  const { main } = e.target.dataset;
+  sections.forEach((link) => link.classList.remove('display'));
+  document.querySelector(`.main${main}`).classList.add('display');
+});
