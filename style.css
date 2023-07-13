@@ -4,19 +4,20 @@
   margin: 0;
   font-family: 'Times New Roman', Times, serif;
   font-weight: 700;
+  color: black;
 }
 
 header {
   display: flex;
   justify-content: space-between;
-  padding: 1rem 4rem;
+  padding: 4px 1rem;
   border: 2px solid;
-  margin: 1rem 2rem;
+  margin: 4px 15%;
 }
 
 ul {
   display: flex;
-  gap: 2rem;
+  gap: 1rem;
   list-style: none  ;
 }
 
@@ -63,11 +64,6 @@ button {
   padding: 2px 8px;
 }
 
-hr {
-  width: 6em;
-  border: 1px solid;
-}
-
 form {
   display: flex;
   flex-direction: column;
@@ -80,4 +76,17 @@ input {
   padding: 2px;
   width: 100%;
   border: 2px solid;
+}
+
+.contact-list {
+  flex-direction:column;
+  list-style: disc;
+  gap: 2px;
+  padding-left: 1rem;
+}
+
+footer {
+  padding: 4px 1rem;
+  border: 2px solid;
+  margin: 4px 15%;
 }
